@@ -1,0 +1,30 @@
+[
+  {
+    "type": "INT_OVERFLOW",
+    "cwe": 190,
+    "step": "CWE190_Integer_Overflow__int_fscanf_multiply_01",
+    "file": "/mnt/WorkDrive/stase_juliet/CWE190_Integer_Overflow__int_fscanf_multiply_01/instrumented_CWE190_Integer_Overflow__int_fscanf_multiply_01.c",
+    "location": {
+      "file": "./instrumented_CWE190_Integer_Overflow__int_fscanf_multiply_01.c",
+      "line": 20
+    },
+    "target": "        int result = data * 2;",
+    "variables": [
+      {
+        "name": "data"
+      }
+    ],
+    "assumptions": [],
+    "assertion": "klee_assert(data <= INT_MAX / 2)",
+    "precondition": "(query [(Slt 0 N0:(ReadLSB w32 0 data)) (Eq false (Sle N0 1073741823))] false)",
+    "postcondition": "!(data <= INT_MAX / 2)",
+    "effect": {
+      "segment": "DATA",
+      "action": "TRIGGER"
+    },
+    "artifacts": {
+      "ktest": "CWE190_Integer_Overflow__int_fscanf_multiply_01/klee-last/test000002.ktest",
+      "kquery": "CWE190_Integer_Overflow__int_fscanf_multiply_01/klee-last/test000002.kquery"
+    }
+  }
+]
