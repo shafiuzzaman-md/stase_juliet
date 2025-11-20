@@ -1,0 +1,30 @@
+[
+  {
+    "type": "INT_OVERFLOW",
+    "cwe": 190,
+    "step": "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_memmove_01",
+    "file": "/mnt/WorkDrive/stase_juliet/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_memmove_01/instrumented_CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_memmove_01.c",
+    "location": {
+      "file": "./instrumented_CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_memmove_01.c",
+      "line": 76
+    },
+    "target": null,
+    "variables": [
+      {
+        "name": "data"
+      }
+    ],
+    "assumptions": [],
+    "assertion": "klee_assert((size_t)copy_len <= alloc_wchars)",
+    "precondition": "(query [] false)",
+    "postcondition": "!((size_t)copy_len <= alloc_wchars)",
+    "effect": {
+      "segment": "HEAP",
+      "action": "WRITE"
+    },
+    "artifacts": {
+      "ktest": "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_memmove_01/klee-last/test000001.ktest",
+      "kquery": "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_memmove_01/klee-last/test000001.kquery"
+    }
+  }
+]

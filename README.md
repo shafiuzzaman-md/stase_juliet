@@ -17,6 +17,10 @@ python3 tools/make_driver.py \
 # 3) Build one TU
 clang -I$KLEE_INCLUDE_DIR -DUSE_KLEE_SOURCE -emit-llvm \
   -c -g -O0 -Xclang -disable-O0-optnone driver_CWE190_Integer_Overflow__int_fscanf_multiply_01.c -o driver.bc
+
+clang -I$KLEE_INCLUDE_DIR -DUSE_KLEE_SOURCE -emit-llvm \
+  -c -g -O0 -Xclang -disable-O0-optnone driver_CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_memmove_01.c -o driver.bc
+
 klee driver.bc
 
 # 4) Process output
@@ -28,8 +32,15 @@ python3 tools/klee_to_chainjson.py \
   --source CWE190_Integer_Overflow__int_fscanf_multiply_01/instrumented_CWE190_Integer_Overflow__int_fscanf_multiply_01.c \
   --type INT_OVERFLOW \
   --cwe 190 \
-  --target "int result = data * 2;" \
-  --assumption "data > 0" \
   --out stase_output/CWE190_Integer_Overflow__int_fscanf_multiply_01_witness.json
 
 
+python3 tools/klee_to_chainjson.py \
+  --klee-dir CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_memmove_01/klee-last \
+  --step CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_memmove_01 \
+  --vars data \
+  --main CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_memmove_01/main_single.c \
+  --source CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_memmove_01/instrumented_CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_memmove_01.c \
+  --type INT_OVERFLOW \
+  --cwe 190 \
+  --out stase_output/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_memmove_01.json

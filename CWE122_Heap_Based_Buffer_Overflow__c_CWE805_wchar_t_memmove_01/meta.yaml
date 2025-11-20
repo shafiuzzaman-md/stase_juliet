@@ -1,0 +1,10 @@
+stem: CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_memmove_01
+cwe: 122
+segment: HEAP
+effect: WRITE
+io: STDIN
+env_key: null
+file_name: null
+entrypoints:
+  bad: CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_memmove_01_bad
+  good: null
