@@ -1,7 +1,7 @@
 [
   {
-    "type": "INT_OVERFLOW",
-    "cwe": 190,
+    "type": "HEAP_OVERFLOW",
+    "cwe": 122,
     "step": "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_memmove_01",
     "file": "/mnt/WorkDrive/stase_juliet/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_memmove_01/instrumented_CWE122_Heap_Based_Buffer_Overflow__c_CWE805_wchar_t_memmove_01.c",
     "location": {
