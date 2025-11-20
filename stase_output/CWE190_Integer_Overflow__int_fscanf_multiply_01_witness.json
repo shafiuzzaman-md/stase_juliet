@@ -8,7 +8,7 @@
       "file": "./instrumented_CWE190_Integer_Overflow__int_fscanf_multiply_01.c",
       "line": 20
     },
-    "target": "        int result = data * 2;",
+    "target": "int result = data * 2;",
     "variables": [
       {
         "name": "data"

@@ -1,0 +1,29 @@
+[
+  {
+    "type": "HEAP_OVERFLOW",
+    "cwe": 122,
+    "step": "CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_memcpy_01",
+    "file": "/home/shafi/stase_juliet/CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_memcpy_01/instrumented_CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_memcpy_01.c",
+    "location": {
+      "file": "instrumented_CWE122_Heap_Based_Buffer_Overflow__c_CWE805_char_memcpy_01.c",
+      "line": 21
+    },
+    "variables": [
+      {
+        "name": "data"
+      }
+    ],
+    "assumptions": [],
+    "assertion": "klee_assert(data_capacity >= 100)",
+    "precondition": null,
+    "postcondition": "!(data_capacity >= 100)",
+    "effect": {
+      "segment": "HEAP",
+      "action": "WRITE"
+    },
+    "artifacts": {
+      "ktest": null,
+      "kquery": null
+    }
+  }
+]
